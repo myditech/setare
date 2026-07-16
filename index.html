@@ -32,8 +32,8 @@
 
         body {
             font-family: "Vazirmatn", Tahoma, sans-serif;
-            background: var(--white);
             color: var(--dark);
+            background: var(--white);
             line-height: 1.8;
             overflow-x: hidden;
         }
@@ -55,8 +55,8 @@
         }
 
         img {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
         }
 
         .container {
@@ -191,6 +191,7 @@
             display: none;
             width: 43px;
             height: 43px;
+            place-items: center;
             color: var(--primary);
             background: var(--primary-light);
             border: 0;
@@ -266,9 +267,9 @@
 
         .image-background {
             position: absolute;
+            bottom: 0;
             width: 90%;
             height: 88%;
-            bottom: 0;
             background: linear-gradient(145deg, #ddebff, #f5faff);
             border-radius: 48% 48% 25px 25px;
         }
@@ -312,19 +313,20 @@
             height: 41px;
             display: grid;
             place-items: center;
+            flex-shrink: 0;
             color: var(--white);
             background: var(--primary);
             border-radius: 12px;
         }
 
         .card-one {
-            right: -18px;
             top: 110px;
+            right: -18px;
         }
 
         .card-two {
-            left: -10px;
             bottom: 55px;
+            left: -10px;
         }
 
         /* Services */
@@ -401,8 +403,8 @@
         .benefit-box::after {
             content: "";
             position: absolute;
-            left: -90px;
             bottom: -100px;
+            left: -90px;
             width: 270px;
             height: 270px;
             border: 50px solid rgba(255, 255, 255, 0.08);
@@ -505,17 +507,17 @@
         }
 
         .discount-card::before {
-            width: 220px;
-            height: 220px;
             top: -140px;
             left: -90px;
+            width: 220px;
+            height: 220px;
         }
 
         .discount-card::after {
-            width: 140px;
-            height: 140px;
             right: -90px;
             bottom: -100px;
+            width: 140px;
+            height: 140px;
         }
 
         .discount-content,
@@ -563,8 +565,8 @@
         .consultation-grid {
             display: grid;
             grid-template-columns: 0.8fr 1.2fr;
-            gap: 55px;
             align-items: center;
+            gap: 55px;
         }
 
         .consultation-info h2 {
@@ -669,8 +671,8 @@
         /* Footer */
         footer {
             padding: 35px 0;
-            background: #09254a;
             color: rgba(255, 255, 255, 0.75);
+            background: #09254a;
         }
 
         .footer-content {
@@ -718,7 +720,6 @@
 
             .menu-button {
                 display: grid;
-                place-items: center;
             }
 
             .hero-grid,
@@ -747,10 +748,6 @@
 
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .benefits-grid {
-                gap: 45px;
             }
         }
 
@@ -891,7 +888,6 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="container hero-grid">
                 <div class="hero-content">
@@ -949,8 +945,7 @@
                     <div class="floating-card card-one">
                         <span class="icon">✓</span>
                         <div>
-                            <strong>درمان تخصصی</strong>
-                            <small>با تجهیزات مدرن</small>
+                            <strong>درمان تخصصی به‌صورت مدرن</strong>
                         </div>
                     </div>
 
@@ -965,7 +960,6 @@
             </div>
         </section>
 
-        <!-- Services Section -->
         <section class="services" id="services">
             <div class="container">
                 <div class="section-heading">
@@ -1035,7 +1029,6 @@
             </div>
         </section>
 
-        <!-- Benefits Section -->
         <section class="benefits" id="benefits">
             <div class="container benefits-grid">
                 <div class="benefit-box">
@@ -1110,7 +1103,6 @@
             </div>
         </section>
 
-        <!-- Discount Section -->
         <section class="discount" id="discount">
             <div class="container">
                 <div class="discount-card">
@@ -1135,7 +1127,6 @@
             </div>
         </section>
 
-        <!-- Consultation Section -->
         <section class="consultation" id="consultation">
             <div class="container consultation-grid">
                 <div class="consultation-info">
