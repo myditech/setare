@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>کلینیک دندان‌پزشکی ستاره | لبخندی زیبا و سالم</title>
-    <meta name="description" content="کلینیک دندان‌پزشکی ستاره؛ ارائه خدمات تخصصی دندان‌پزشکی، زیبایی، ایمپلنت و مشاوره با تخفیف ویژه.">
+
+    <meta
+        name="description"
+        content="کلینیک دندان‌پزشکی ستاره؛ خدمات تخصصی دندان‌پزشکی، زیبایی، ایمپلنت و مشاوره با تخفیف ویژه."
+    >
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap");
@@ -28,6 +32,10 @@
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -108,7 +116,11 @@
 
         .btn-primary {
             color: var(--white);
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--primary-dark)
+            );
             box-shadow: 0 12px 25px rgba(20, 121, 255, 0.25);
         }
 
@@ -128,17 +140,18 @@
             border-color: var(--primary);
         }
 
-        /* Header */
+        /* هدر */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.9);
             border-bottom: 1px solid rgba(220, 234, 255, 0.9);
             backdrop-filter: blur(15px);
         }
 
         .navbar {
+            position: relative;
             min-height: 76px;
             display: flex;
             align-items: center;
@@ -165,7 +178,7 @@
             box-shadow: 0 10px 23px rgba(20, 121, 255, 0.25);
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--primary);
         }
 
@@ -180,7 +193,7 @@
         }
 
         .nav-links a {
-            transition: 0.2s;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
@@ -199,12 +212,16 @@
             font-size: 1.4rem;
         }
 
-        /* Hero */
+        /* بخش اصلی */
         .hero {
             position: relative;
-            padding: 75px 0 90px;
+            padding: 75px 0 100px;
             background:
-                radial-gradient(circle at 8% 18%, rgba(20, 121, 255, 0.12), transparent 25%),
+                radial-gradient(
+                    circle at 8% 18%,
+                    rgba(20, 121, 255, 0.12),
+                    transparent 25%
+                ),
                 linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
         }
 
@@ -257,19 +274,27 @@
             font-size: 0.87rem;
         }
 
+        /*
+         * تصویر پزشک
+         * باکس‌های اطلاعاتی زیر تصویر قرار گرفته‌اند؛
+         * در نتیجه هیچ‌کدام روی صورت نمایش داده نمی‌شوند.
+         */
         .doctor-visual {
             position: relative;
-            min-height: 520px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            padding-bottom: 65px;
+        }
+
+        .doctor-image-wrapper {
+            position: relative;
+            width: 88%;
+            height: 510px;
+            margin-inline: auto;
         }
 
         .image-background {
             position: absolute;
-            bottom: 0;
-            width: 90%;
-            height: 88%;
+            inset: 35px -6% 0;
             background: linear-gradient(145deg, #ddebff, #f5faff);
             border-radius: 48% 48% 25px 25px;
         }
@@ -277,59 +302,66 @@
         .doctor-image {
             position: relative;
             z-index: 2;
-            width: 88%;
-            height: 510px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             object-position: center top;
             border-radius: 200px 200px 25px 25px;
-            filter: drop-shadow(0 25px 30px rgba(23, 82, 154, 0.15));
+            filter: drop-shadow(
+                0 25px 30px rgba(23, 82, 154, 0.15)
+            );
+        }
+
+        .doctor-cards {
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            width: 100%;
         }
 
         .floating-card {
-            position: absolute;
-            z-index: 4;
+            min-height: 86px;
             display: flex;
             align-items: center;
             gap: 11px;
-            padding: 13px 17px;
-            background: rgba(255, 255, 255, 0.94);
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.97);
             border: 1px solid var(--border);
             border-radius: 16px;
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
         }
 
-        .floating-card strong {
-            display: block;
-            font-size: 0.9rem;
-        }
-
-        .floating-card small {
-            color: var(--text);
-        }
-
         .floating-card .icon {
+            flex: 0 0 41px;
             width: 41px;
             height: 41px;
             display: grid;
             place-items: center;
-            flex-shrink: 0;
             color: var(--white);
             background: var(--primary);
             border-radius: 12px;
         }
 
-        .card-one {
-            top: 110px;
-            right: -18px;
+        .floating-card strong {
+            display: block;
+            font-size: 0.88rem;
+            line-height: 1.6;
         }
 
-        .card-two {
-            bottom: 55px;
-            left: -10px;
+        .floating-card small {
+            display: block;
+            color: var(--text);
+            font-size: 0.75rem;
+            line-height: 1.6;
         }
 
-        /* Services */
+        /* خدمات */
         .services {
             padding: 100px 0;
         }
@@ -376,7 +408,7 @@
             font-size: 0.92rem;
         }
 
-        /* Benefits */
+        /* مزیت‌ها */
         .benefits {
             padding: 100px 0;
             background: #f7fbff;
@@ -411,17 +443,23 @@
             border-radius: 50%;
         }
 
+        .benefit-box .tag {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.24);
+        }
+
         .benefit-box h2 {
             position: relative;
             z-index: 2;
-            margin-bottom: 17px;
+            margin: 18px 0;
             font-size: 2rem;
         }
 
         .benefit-box p {
             position: relative;
             z-index: 2;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.82);
         }
 
         .benefit-number {
@@ -479,7 +517,7 @@
             font-size: 0.87rem;
         }
 
-        /* Discount */
+        /* تخفیف */
         .discount {
             padding: 100px 0;
         }
@@ -557,7 +595,7 @@
             font-weight: 700;
         }
 
-        /* Consultation */
+        /* مشاوره */
         .consultation {
             padding: 30px 0 110px;
         }
@@ -590,7 +628,8 @@
             gap: 13px;
         }
 
-        .contact-item span:first-child {
+        .contact-icon {
+            flex: 0 0 45px;
             width: 45px;
             height: 45px;
             display: grid;
@@ -639,7 +678,7 @@
             border: 1px solid var(--border);
             border-radius: 13px;
             outline: none;
-            transition: 0.2s;
+            transition: 0.2s ease;
         }
 
         textarea.form-control {
@@ -668,7 +707,7 @@
             font-size: 0.9rem;
         }
 
-        /* Footer */
+        /* فوتر */
         footer {
             padding: 35px 0;
             color: rgba(255, 255, 255, 0.75);
@@ -687,13 +726,13 @@
             font-weight: 800;
         }
 
-        /* Responsive */
+        /* تبلت */
         @media (max-width: 950px) {
             .nav-links {
                 position: absolute;
                 top: 76px;
-                right: 20px;
-                left: 20px;
+                right: 0;
+                left: 0;
                 display: none;
                 flex-direction: column;
                 align-items: stretch;
@@ -742,15 +781,20 @@
             }
 
             .doctor-visual {
-                width: min(540px, 100%);
+                width: min(560px, 100%);
                 margin-inline: auto;
             }
 
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .benefits-grid {
+                gap: 45px;
+            }
         }
 
+        /* موبایل */
         @media (max-width: 700px) {
             .container {
                 width: min(100% - 28px, 1160px);
@@ -765,23 +809,30 @@
             }
 
             .doctor-visual {
-                min-height: 430px;
+                padding-bottom: 0;
             }
 
-            .doctor-image {
+            .doctor-image-wrapper {
+                width: 95%;
                 height: 420px;
             }
 
+            /*
+             * در موبایل باکس‌ها کاملاً زیر تصویر هستند
+             * و دیگر حالت absolute ندارند.
+             */
+            .doctor-cards {
+                position: relative;
+                right: auto;
+                left: auto;
+                bottom: auto;
+                grid-template-columns: 1fr;
+                width: 95%;
+                margin: 15px auto 0;
+            }
+
             .floating-card {
-                padding: 10px 12px;
-            }
-
-            .card-one {
-                right: 0;
-            }
-
-            .card-two {
-                left: 0;
+                min-height: 76px;
             }
 
             .services-grid,
@@ -832,30 +883,22 @@
                 width: calc(50% - 10px);
             }
 
-            .doctor-visual {
-                min-height: 370px;
-            }
-
-            .doctor-image {
-                width: 96%;
+            .doctor-image-wrapper {
                 height: 365px;
             }
 
-            .floating-card {
-                font-size: 0.75rem;
+            .doctor-image {
+                border-radius: 150px 150px 22px 22px;
+            }
+
+            .floating-card strong {
+                font-size: 0.84rem;
             }
 
             .floating-card .icon {
-                width: 34px;
-                height: 34px;
-            }
-
-            .card-one {
-                top: 80px;
-            }
-
-            .card-two {
-                bottom: 25px;
+                flex-basis: 37px;
+                width: 37px;
+                height: 37px;
             }
         }
     </style>
@@ -866,7 +909,10 @@
         <div class="container navbar">
             <a class="logo" href="#home">
                 <span class="logo-icon">✦</span>
-                کلینیک <span>ستاره</span>
+
+                <span class="logo-text">
+                    کلینیک <span>ستاره</span>
+                </span>
             </a>
 
             <ul class="nav-links" id="navLinks">
@@ -881,27 +927,38 @@
                 دریافت نوبت
             </a>
 
-            <button class="menu-button" id="menuButton" type="button" aria-label="نمایش منو">
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="نمایش منو"
+                aria-expanded="false"
+            >
                 ☰
             </button>
         </div>
     </header>
 
     <main>
+        <!-- بخش اصلی -->
         <section class="hero" id="home">
             <div class="container hero-grid">
                 <div class="hero-content">
-                    <span class="tag">✦ لبخند سالم، زندگی زیباتر</span>
+                    <span class="tag">
+                        ✦ لبخند سالم، زندگی زیباتر
+                    </span>
 
                     <h1>
                         لبخند شما، درخشان‌ترین
-                        <span>ستاره</span> زندگی شماست
+                        <span>ستاره</span>
+                        زندگی شماست
                     </h1>
 
                     <p>
-                        در کلینیک دندان‌پزشکی ستاره با بهره‌گیری از تجهیزات مدرن،
-                        مواد باکیفیت و درمان‌های دقیق، برای ساختن لبخندی سالم، طبیعی
-                        و ماندگار در کنار شما هستیم.
+                        در کلینیک دندان‌پزشکی ستاره با بهره‌گیری از
+                        تجهیزات مدرن، مواد باکیفیت و درمان‌های دقیق،
+                        برای ساختن لبخندی سالم، طبیعی و ماندگار در
+                        کنار شما هستیم.
                     </p>
 
                     <div class="hero-actions">
@@ -933,169 +990,248 @@
                 </div>
 
                 <div class="doctor-visual">
-                    <div class="image-background"></div>
+                    <div class="doctor-image-wrapper">
+                        <div class="image-background"></div>
 
-                    <!-- فایل hamid.jpg باید کنار index.html قرار داشته باشد -->
-                    <img
-                        class="doctor-image"
-                        src="hamid.jpg"
-                        alt="دندان‌پزشک کلینیک ستاره"
-                    >
-
-                    <div class="floating-card card-one">
-                        <span class="icon">✓</span>
-                        <div>
-                            <strong>درمان تخصصی به‌صورت مدرن</strong>
-                        </div>
+                        <!-- فایل hamid.jpg را کنار index.html قرار دهید -->
+                        <img
+                            class="doctor-image"
+                            src="hamid.jpg"
+                            alt="دندان‌پزشک کلینیک ستاره"
+                        >
                     </div>
 
-                    <div class="floating-card card-two">
-                        <span class="icon">★</span>
-                        <div>
-                            <strong>مشاوره رایگان</strong>
-                            <small>بررسی اولیه وضعیت دندان</small>
+                    <!-- باکس‌ها پایین تصویر قرار دارند و روی صورت نمی‌آیند -->
+                    <div class="doctor-cards">
+                        <div class="floating-card">
+                            <span class="icon">✓</span>
+
+                            <div>
+                                <strong>
+                                    درمان تخصصی به‌صورت مدرن
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="floating-card">
+                            <span class="icon">★</span>
+
+                            <div>
+                                <strong>مشاوره رایگان</strong>
+                                <small>
+                                    بررسی اولیه وضعیت دندان
+                                </small>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- خدمات -->
         <section class="services" id="services">
             <div class="container">
                 <div class="section-heading">
                     <span class="tag">خدمات کلینیک</span>
-                    <h2>مراقبت حرفه‌ای برای لبخند شما</h2>
+
+                    <h2>
+                        مراقبت حرفه‌ای برای لبخند شما
+                    </h2>
+
                     <p>
-                        خدمات درمانی و زیبایی دندان‌پزشکی با برنامه‌ریزی متناسب
-                        با نیاز، شرایط و بودجه هر مراجعه‌کننده ارائه می‌شود.
+                        خدمات درمانی و زیبایی دندان‌پزشکی با
+                        برنامه‌ریزی متناسب با نیاز، شرایط و بودجه
+                        هر مراجعه‌کننده ارائه می‌شود.
                     </p>
                 </div>
 
                 <div class="services-grid">
                     <article class="service-card">
                         <div class="service-icon">✦</div>
+
                         <h3>اصلاح طرح لبخند</h3>
+
                         <p>
-                            طراحی لبخندی طبیعی و متناسب با فرم صورت با استفاده
-                            از روش‌های مدرن دندان‌پزشکی زیبایی.
+                            طراحی لبخندی طبیعی و متناسب با فرم صورت
+                            با استفاده از روش‌های مدرن دندان‌پزشکی
+                            زیبایی.
                         </p>
                     </article>
 
                     <article class="service-card">
                         <div class="service-icon">◈</div>
+
                         <h3>ایمپلنت دندان</h3>
+
                         <p>
-                            جایگزینی اصولی دندان ازدست‌رفته با ایمپلنت‌های
-                            باکیفیت و طراحی درمان اختصاصی.
+                            جایگزینی اصولی دندان ازدست‌رفته با
+                            ایمپلنت‌های باکیفیت و طراحی درمان
+                            اختصاصی.
                         </p>
                     </article>
 
                     <article class="service-card">
                         <div class="service-icon">☼</div>
+
                         <h3>سفید کردن دندان</h3>
+
                         <p>
-                            بلیچینگ حرفه‌ای و ایمن برای کاهش تغییر رنگ دندان‌ها
-                            و افزایش درخشندگی لبخند.
+                            بلیچینگ حرفه‌ای و ایمن برای کاهش تغییر
+                            رنگ دندان‌ها و افزایش درخشندگی لبخند.
                         </p>
                     </article>
 
                     <article class="service-card">
                         <div class="service-icon">◇</div>
+
                         <h3>لمینت و کامپوزیت</h3>
+
                         <p>
-                            اصلاح رنگ، فرم و فاصله میان دندان‌ها با حفظ ظاهر
-                            طبیعی و هماهنگی کامل لبخند.
+                            اصلاح رنگ، فرم و فاصله میان دندان‌ها با
+                            حفظ ظاهر طبیعی و هماهنگی کامل لبخند.
                         </p>
                     </article>
 
                     <article class="service-card">
                         <div class="service-icon">◎</div>
+
                         <h3>درمان ریشه</h3>
+
                         <p>
-                            عصب‌کشی دقیق و کنترل درد با رعایت استانداردهای
-                            درمانی و استفاده از تجهیزات پیشرفته.
+                            عصب‌کشی دقیق و کنترل درد با رعایت
+                            استانداردهای درمانی و استفاده از
+                            تجهیزات پیشرفته.
                         </p>
                     </article>
 
                     <article class="service-card">
                         <div class="service-icon">♡</div>
+
                         <h3>دندان‌پزشکی کودکان</h3>
+
                         <p>
-                            معاینه و درمان دندان کودکان در محیطی آرام، دوستانه
-                            و مناسب برای کاهش اضطراب آن‌ها.
+                            معاینه و درمان دندان کودکان در محیطی
+                            آرام، دوستانه و مناسب برای کاهش اضطراب
+                            آن‌ها.
                         </p>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- مزیت‌های کلینیک -->
         <section class="benefits" id="benefits">
             <div class="container benefits-grid">
                 <div class="benefit-box">
                     <span class="tag">کلینیک ستاره</span>
-                    <h2>تجربه‌ای آرام و مطمئن از دندان‌پزشکی</h2>
+
+                    <h2>
+                        تجربه‌ای آرام و مطمئن از دندان‌پزشکی
+                    </h2>
+
                     <p>
-                        هدف ما فقط درمان دندان نیست؛ می‌خواهیم مراجعه شما
-                        با آرامش، اطمینان و دریافت اطلاعات شفاف همراه باشد.
+                        هدف ما فقط درمان دندان نیست؛ می‌خواهیم
+                        مراجعه شما با آرامش، اطمینان و دریافت
+                        اطلاعات شفاف همراه باشد.
                     </p>
+
                     <span class="benefit-number">01</span>
                 </div>
 
                 <div class="benefits-content">
                     <span class="tag">چرا کلینیک ستاره؟</span>
-                    <h2>کیفیت درمان، آرامش و احترام به انتخاب شما</h2>
+
+                    <h2>
+                        کیفیت درمان، آرامش و احترام به انتخاب شما
+                    </h2>
+
                     <p>
-                        پیش از شروع درمان، وضعیت دندان‌ها و گزینه‌های موجود
-                        به‌صورت شفاف بررسی شده و مناسب‌ترین برنامه درمانی به شما
-                        پیشنهاد می‌شود.
+                        پیش از شروع درمان، وضعیت دندان‌ها و
+                        گزینه‌های موجود به‌صورت شفاف بررسی شده و
+                        مناسب‌ترین برنامه درمانی به شما پیشنهاد
+                        می‌شود.
                     </p>
 
                     <div class="benefits-list">
                         <div class="benefit-item">
                             <span class="check">✓</span>
+
                             <div>
                                 <strong>تجهیزات مدرن</strong>
-                                <p>استفاده از فناوری‌های به‌روز دندان‌پزشکی</p>
+                                <p>
+                                    استفاده از فناوری‌های به‌روز
+                                    دندان‌پزشکی
+                                </p>
                             </div>
                         </div>
 
                         <div class="benefit-item">
                             <span class="check">✓</span>
+
                             <div>
                                 <strong>رعایت کامل بهداشت</strong>
-                                <p>استریل دقیق ابزار و رعایت پروتکل‌های درمانی</p>
+                                <p>
+                                    استریل دقیق ابزار و رعایت
+                                    پروتکل‌های درمانی
+                                </p>
                             </div>
                         </div>
 
                         <div class="benefit-item">
                             <span class="check">✓</span>
+
                             <div>
-                                <strong>برنامه درمان اختصاصی</strong>
-                                <p>انتخاب درمان متناسب با نیاز هر مراجعه‌کننده</p>
+                                <strong>
+                                    برنامه درمان اختصاصی
+                                </strong>
+
+                                <p>
+                                    انتخاب درمان متناسب با نیاز هر
+                                    مراجعه‌کننده
+                                </p>
                             </div>
                         </div>
 
                         <div class="benefit-item">
                             <span class="check">✓</span>
+
                             <div>
-                                <strong>پشتیبانی پس از درمان</strong>
-                                <p>پیگیری وضعیت بیمار و ارائه توصیه‌های ضروری</p>
+                                <strong>
+                                    پشتیبانی پس از درمان
+                                </strong>
+
+                                <p>
+                                    پیگیری وضعیت بیمار و ارائه
+                                    توصیه‌های ضروری
+                                </p>
                             </div>
                         </div>
 
                         <div class="benefit-item">
                             <span class="check">✓</span>
+
                             <div>
                                 <strong>شفافیت هزینه‌ها</strong>
-                                <p>اطلاع‌رسانی هزینه و مراحل پیش از شروع درمان</p>
+
+                                <p>
+                                    اطلاع‌رسانی هزینه و مراحل پیش
+                                    از شروع درمان
+                                </p>
                             </div>
                         </div>
 
                         <div class="benefit-item">
                             <span class="check">✓</span>
+
                             <div>
-                                <strong>محیط آرام و مینیمال</strong>
-                                <p>فضایی دلنشین برای تجربه درمانی بدون اضطراب</p>
+                                <strong>
+                                    محیط آرام و مینیمال
+                                </strong>
+
+                                <p>
+                                    فضایی دلنشین برای تجربه درمانی
+                                    بدون اضطراب
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1103,15 +1239,20 @@
             </div>
         </section>
 
+        <!-- تخفیف ویژه -->
         <section class="discount" id="discount">
             <div class="container">
                 <div class="discount-card">
                     <div class="discount-content">
-                        <h2>تخفیف ویژه مراجعان جدید</h2>
+                        <h2>
+                            تخفیف ویژه مراجعان جدید
+                        </h2>
+
                         <p>
-                            با ثبت درخواست مشاوره از طریق سایت، از تخفیف ویژه
-                            خدمات منتخب کلینیک برخوردار شوید. این پیشنهاد برای
-                            مدت محدود فعال است.
+                            با ثبت درخواست مشاوره از طریق سایت، از
+                            تخفیف ویژه خدمات منتخب کلینیک برخوردار
+                            شوید. این پیشنهاد برای مدت محدود فعال
+                            است.
                         </p>
 
                         <a class="btn" href="#consultation">
@@ -1127,20 +1268,26 @@
             </div>
         </section>
 
+        <!-- فرم مشاوره -->
         <section class="consultation" id="consultation">
             <div class="container consultation-grid">
                 <div class="consultation-info">
                     <span class="tag">رزرو مشاوره</span>
-                    <h2>برای شروع یک لبخند تازه آماده‌اید؟</h2>
+
+                    <h2>
+                        برای شروع یک لبخند تازه آماده‌اید؟
+                    </h2>
+
                     <p>
-                        فرم روبه‌رو را تکمیل کنید تا همکاران کلینیک در اولین
-                        فرصت برای هماهنگی نوبت و ارائه راهنمایی اولیه با شما
-                        تماس بگیرند.
+                        فرم روبه‌رو را تکمیل کنید تا همکاران کلینیک
+                        در اولین فرصت برای هماهنگی نوبت و ارائه
+                        راهنمایی اولیه با شما تماس بگیرند.
                     </p>
 
                     <div class="contact-items">
                         <div class="contact-item">
-                            <span>☎</span>
+                            <span class="contact-icon">☎</span>
+
                             <div>
                                 <small>شماره تماس</small>
                                 <strong>۰۲۱-۱۲۳۴۵۶۷۸</strong>
@@ -1148,38 +1295,54 @@
                         </div>
 
                         <div class="contact-item">
-                            <span>⌖</span>
+                            <span class="contact-icon">⌖</span>
+
                             <div>
                                 <small>آدرس کلینیک</small>
-                                <strong>تهران، خیابان نمونه، پلاک ۱۲</strong>
+                                <strong>
+                                    تهران، خیابان نمونه، پلاک ۱۲
+                                </strong>
                             </div>
                         </div>
 
                         <div class="contact-item">
-                            <span>◷</span>
+                            <span class="contact-icon">◷</span>
+
                             <div>
                                 <small>ساعات کاری</small>
-                                <strong>شنبه تا پنجشنبه، ۹ تا ۲۰</strong>
+                                <strong>
+                                    شنبه تا پنجشنبه، ۹ تا ۲۰
+                                </strong>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <form class="consultation-form" id="consultationForm">
+                <form
+                    class="consultation-form"
+                    id="consultationForm"
+                >
                     <div class="form-group">
-                        <label for="fullName">نام و نام خانوادگی</label>
+                        <label for="fullName">
+                            نام و نام خانوادگی
+                        </label>
+
                         <input
                             class="form-control"
                             id="fullName"
                             name="fullName"
                             type="text"
                             placeholder="مثلاً حمید رضایی"
+                            autocomplete="name"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">شماره تماس</label>
+                        <label for="phone">
+                            شماره تماس
+                        </label>
+
                         <input
                             class="form-control"
                             id="phone"
@@ -1187,26 +1350,61 @@
                             type="tel"
                             inputmode="numeric"
                             placeholder="۰۹۱۲۱۲۳۴۵۶۷"
+                            autocomplete="tel"
                             required
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="service">خدمت موردنظر</label>
-                        <select class="form-control" id="service" name="service" required>
-                            <option value="">انتخاب کنید</option>
-                            <option>اصلاح طرح لبخند</option>
-                            <option>ایمپلنت دندان</option>
-                            <option>سفید کردن دندان</option>
-                            <option>لمینت و کامپوزیت</option>
-                            <option>درمان ریشه</option>
-                            <option>دندان‌پزشکی کودکان</option>
-                            <option>سایر خدمات</option>
+                        <label for="service">
+                            خدمت موردنظر
+                        </label>
+
+                        <select
+                            class="form-control"
+                            id="service"
+                            name="service"
+                            required
+                        >
+                            <option value="">
+                                انتخاب کنید
+                            </option>
+
+                            <option value="smile">
+                                اصلاح طرح لبخند
+                            </option>
+
+                            <option value="implant">
+                                ایمپلنت دندان
+                            </option>
+
+                            <option value="bleaching">
+                                سفید کردن دندان
+                            </option>
+
+                            <option value="veneer">
+                                لمینت و کامپوزیت
+                            </option>
+
+                            <option value="root">
+                                درمان ریشه
+                            </option>
+
+                            <option value="children">
+                                دندان‌پزشکی کودکان
+                            </option>
+
+                            <option value="other">
+                                سایر خدمات
+                            </option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="date">تاریخ پیشنهادی</label>
+                        <label for="date">
+                            تاریخ پیشنهادی
+                        </label>
+
                         <input
                             class="form-control"
                             id="date"
@@ -1217,7 +1415,10 @@
                     </div>
 
                     <div class="form-group full">
-                        <label for="message">توضیحات شما</label>
+                        <label for="message">
+                            توضیحات شما
+                        </label>
+
                         <textarea
                             class="form-control"
                             id="message"
@@ -1227,11 +1428,19 @@
                     </div>
 
                     <div class="form-group full">
-                        <div class="form-message" id="formMessage">
-                            درخواست شما با موفقیت ثبت شد. به‌زودی با شما تماس می‌گیریم.
+                        <div
+                            class="form-message"
+                            id="formMessage"
+                            role="status"
+                        >
+                            درخواست شما با موفقیت ثبت شد. به‌زودی
+                            با شما تماس می‌گیریم.
                         </div>
 
-                        <button class="btn btn-primary submit-btn" type="submit">
+                        <button
+                            class="btn btn-primary submit-btn"
+                            type="submit"
+                        >
                             ثبت درخواست مشاوره
                         </button>
                     </div>
@@ -1242,39 +1451,61 @@
 
     <footer>
         <div class="container footer-content">
-            <div class="footer-logo">✦ کلینیک دندان‌پزشکی ستاره</div>
-            <p>تمام حقوق این وب‌سایت محفوظ است.</p>
+            <div class="footer-logo">
+                ✦ کلینیک دندان‌پزشکی ستاره
+            </div>
+
+            <p>
+                تمام حقوق این وب‌سایت محفوظ است.
+            </p>
         </div>
     </footer>
 
     <script>
         const menuButton = document.getElementById("menuButton");
         const navLinks = document.getElementById("navLinks");
-        const consultationForm = document.getElementById("consultationForm");
-        const formMessage = document.getElementById("formMessage");
+        const consultationForm =
+            document.getElementById("consultationForm");
+        const formMessage =
+            document.getElementById("formMessage");
 
-        menuButton.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            menuButton.textContent = navLinks.classList.contains("active") ? "×" : "☰";
+        menuButton.addEventListener("click", function () {
+            const menuIsOpen =
+                navLinks.classList.toggle("active");
+
+            menuButton.textContent = menuIsOpen ? "×" : "☰";
+            menuButton.setAttribute(
+                "aria-expanded",
+                String(menuIsOpen)
+            );
         });
 
-        document.querySelectorAll(".nav-links a").forEach((link) => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                menuButton.textContent = "☰";
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
+                link.addEventListener("click", function () {
+                    navLinks.classList.remove("active");
+                    menuButton.textContent = "☰";
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+                });
             });
-        });
 
-        consultationForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+        consultationForm.addEventListener(
+            "submit",
+            function (event) {
+                event.preventDefault();
 
-            formMessage.style.display = "block";
-            consultationForm.reset();
+                formMessage.style.display = "block";
+                consultationForm.reset();
 
-            setTimeout(() => {
-                formMessage.style.display = "none";
-            }, 6000);
-        });
+                setTimeout(function () {
+                    formMessage.style.display = "none";
+                }, 6000);
+            }
+        );
     </script>
 </body>
 </html>
